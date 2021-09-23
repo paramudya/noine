@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <script src="../static/code.js"></script>
+    <title>will they?</title>
+  </head>
+  <body>
+    <br>
+    <a><img class="logo" src="../static/credit.svg" alt=""></a>
+    <br>
+    <div class="container main">
+  <div class="jumbotron" id="holder">
+    <h1 class='main_heading'>Credit Risk Predictor</h1>
+    <br>
+    <h3>Here are the forms to fill for potential creditor:</h3>
+    <br>
+    <!-- START OF FORM -->
+    
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-2"  for="person_age">person_age</label>
+        <div class="col-sm-10">
+          <input  type="number" class="form-control" id="person_age" name="person_age" placeholder="Enter age" onkeydown="return event.key != 'Enter';" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2"  for="person_income">person_income</label>
+        <div class="col-sm-10">
+          <input  type="number" class="form-control" id="person_income" name="person_income" placeholder="Enter income" onkeydown="return event.key != 'Enter';" >
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="control-label col-sm-2">Home ownership</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="person_home_ownership" name="person_home_ownership" required>
+            <option selected="true" disabled="disabled" value="">Home ownership</option>
+            <option value="RENT">RENT</option>
+            <option value="MORTGAGE">MORTGAGE</option>
+            <option value="OWN">OWN</option>
+            <option value="OTHER">OTHER</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2"  for="person_emp_length">person_emp_length</label>
+        <div class="col-sm-10">
+          <input  type="number" class="form-control" id="person_emp_length" name="person_emp_length" placeholder="Employment length" onkeydown="return event.key != 'Enter';" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">loan_intent</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="loan_intent" name="loan_intent" required>
+            <option selected="true" value="" disabled="disabled">Loan intent</option>
+            <option value="EDUCATION">education</option>
+            <option value="MEDICAL">medical</option>
+            <option value="VENTURE">venture</option>
+            <option value="PERSONAL">personal</option>
+            <option value="DEBTCONSOLIDATION">debt consolidation</option>
+            <option value="HOMEIMPROVEMENT">home stuffs</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">loan_grade</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="loan_grade" name="loan_grade" required>
+            <option selected="true" value="" disabled="disabled">Loan grade</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2"  for="loan_int_rate">loan_int_rate</label>
+        <div class="col-sm-10">
+          <input  type="number" step=0.01 class="form-control" id="loan_int_rate" name="loan_int_rate" placeholder="Interest rate" onkeydown="return event.key != 'Enter';" required>
+        </div>
+      </div> 
+        <!-- 5 sampe 24 -->
+
+      <div class="form-group">
+        <label class="control-label col-sm-2"  for="loan_percent_income">loan_percent_income</label>
+        <div class="col-sm-10">
+          <input  type="number" step=0.01 class="form-control" id="loan_percent_income" name="loan_percent_income" placeholder="Loan installment to income ratio" onkeydown="return event.key != 'Enter';">
+        </div>
+      </div> 
+         <!-- 0 sampe 1 atau lebih bisa sih kalo dia loan nya ngelebihin -->
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" >Person Default on File CB</label>
+          <div class="col-sm-10">
+            <select class="form-control" id="cb_person_default_on_file" name="cb_person_default_on_file" placeholder="They ever default before?" required>
+              <option selected="true" value="" disabled="disabled">--------------    options    ------------</option>
+              <option value="N">Never</option>
+              <option value="Y">Yes</option>
+            </select>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2"  for="cb_person_cred_hist_length">Person Credit History CB</label>
+        <div class="col-sm-10">
+          <input  type="number" class="form-control" id="cb_person_cred_hist_length" name="cb_person_cred_hist_length" placeholder="Credit history length" onkeydown="return event.key != 'Enter';">
+        </div>
+      </div>
+      <!-- ada 2-30 di training, or not more than his length-->
+      <div class="form-group">
+        <label class="control-label col-sm-2"  for="loan_amount">loan amount</label>
+        <div class="col-sm-10">
+          <input  type="number" step=1 class="form-control" id="loan_amount" name="loan_amount" placeholder="How much to borrow?" onkeydown="return event.key != 'Enter';" required>
+        </div>
+      </div>     
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="button btn btn-default">Let me know!</button>
+        </div>
+      </div>
+    </form>
+    <h2 class="result"></h2>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <div class="footer-copyright text-center py-3">
+    <div class="bottom">
+      <p><a href="#">Atwin Paramudya - Credit Risk Predictor (will they default?)</a></p>
+    </div>
+  </div>
+
+</footer>
+<!-- Footer -->
+<p><a href="#">ini footer</a></p>
+
+
+  </body>
+</html>

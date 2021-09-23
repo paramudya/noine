@@ -14,9 +14,13 @@ def ninenineahbikinbingungninamafungsi():
     integer=data_input.get('int')
 
     list_int=list(map(int,integer.split()))
+    print(list_int)
     what_nine_lst=nine(list_int)
+    list_int_str=", ".join(map(str,list_int))
+    print(list_int_str)
+
     what_nine_str=", ".join(map(str,what_nine_lst))
-    return render_template("result.html",result=what_nine_str)
+    return render_template("result.html",input=list_int_str,result=what_nine_str)
 
 if __name__ == "__main__":
     app.run()

@@ -1,0 +1,33 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+<style>
+  * {
+      font-family: "Rubik", "sans-serif";
+  }
+  div {
+      text-align: center;
+      margin-top: 30px;
+  }
+  h1 {
+      color: purple;
+      font-size: 40pt;
+  }
+  p {
+      font-size: 16pt;
+  }
+</style>
+
+<div>
+  <h1>Welcome, Mr. Nithyanandan!</h1><br>
+</div>
+<p>We have put together a solution for you,
+<a href="https://www.spoj.com/problems/NITHY/"> who likes the number 9</a> a little too much.</p>
+
+<div>
+<form class="form-horizontal text-center" action = "http://localhost:5000/result" method ="post">
+    <p><input type ="text" name = "int" placeholder="integers" required /></p>
+    <button type="submit" class="button btn btn-default">Submit!</button>
+    <!-- <p><input type = "submit" value = "submit" /></p> -->
+</form>
+</div>
